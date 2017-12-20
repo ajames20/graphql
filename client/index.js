@@ -5,6 +5,7 @@ import { ApolloProvider } from 'react-apollo';
 import { Router, hashHistory, Route, IndexRoute } from 'react-router';
 
 import App from './components/App';
+import './style.css';
 
 const networkInterface = createNetworkInterface({
   uri: '/graphql',
