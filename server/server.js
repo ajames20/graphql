@@ -39,7 +39,7 @@ app.use(
       url: MONGO_URI,
       autoReconnect: true,
     }),
-  }),
+  })
 );
 
 // Passport is wired into express as a middleware. When a request comes in,
@@ -55,7 +55,7 @@ app.use(
   expressGraphQL({
     schema,
     graphiql: true,
-  }),
+  })
 );
 
 // Webpack runs as a middleware.  If any request comes in for the root route ('/')
