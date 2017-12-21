@@ -19,7 +19,6 @@ class SignupForm extends Component {
     const { email, password, firstName } = this.state;
     event.preventDefault();
     this.onLogin({ email, password, firstName });
-    this.setState({ email: '', password: '', firstName: '' });
   }
 
   onLogin({ email, password, firstName }) {
@@ -32,6 +31,7 @@ class SignupForm extends Component {
         const errors = res.graphQLErrors.map(err => err.message);
         this.setState({ errors });
       });
+    this.setState({ email: '', password: '', firstName: '', errors: [] });
   }
 
   render() {

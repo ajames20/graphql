@@ -18,7 +18,6 @@ class LoginForm extends Component {
     const { email, password } = this.state;
     event.preventDefault();
     this.onLogin({ email, password });
-    this.setState({ email: '', password: '' });
   }
 
   onLogin({ email, password }) {
@@ -31,6 +30,7 @@ class LoginForm extends Component {
         const errors = res.graphQLErrors.map(err => err.message);
         this.setState({ errors });
       });
+    this.setState({ email: '', password: '', errors: [] });
   }
 
   render() {
