@@ -1,4 +1,13 @@
 .header {
+  font-size: 1.4rem;
+  height: 7rem;
+  background-color: #fff;
+  border-bottom: var(--line);
+
+  &__logo {
+    margin-left: 2rem;
+  }
+
   &__nav {
     align-self: stretch;
   }
@@ -25,9 +34,11 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--color-primary-light);
+      transition: all 0.2s ease;
     }
 
     &--link:hover {
+      cursor: pointer;
       background-color: var(--color-grey-light-2);
     }
   }

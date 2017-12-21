@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactAnimatedWeather from 'react-animated-weather';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router';
 import query from '../queries/CurrentUser';
@@ -12,7 +13,7 @@ class Header extends Component {
     });
   }
 
-  renderButtons() {
+  renderHeader() {
     const { loading, user } = this.props.data;
 
     if (loading) {
@@ -20,13 +21,18 @@ class Header extends Component {
     }
 
     if (user) {
-      return (
+      return [
+        <LocationForm key="location-form" />,
         <li key="1" className="header__nav-list-item">
-          <a className="header__nav-list-item--link" onClick={this.logOut.bind(this)} to="/logout">
+          <a
+            className="header__nav-list-item--link"
+            onClick={this.logOut.bind(this)}
+            to="/logout"
+          >
             Logout
           </a>
-        </li>
-      );
+        </li>,
+      ];
     }
 
     return [
@@ -44,18 +50,28 @@ class Header extends Component {
   }
 
   render() {
+    const defaults = {
+      icon: 'PARTLY_CLOUDY_DAY',
+      color: '#536976',
+      size: 46,
+      animate: true,
+    };
+
     return (
       <header className="header">
-        <LocationForm />
+        <div className="header__logo">
+          <Link className="header__nav-list-item--logo" to="/">
+            <ReactAnimatedWeather
+              icon={defaults.icon}
+              color={defaults.color}
+              size={defaults.size}
+              animate={defaults.animate}
+            />
+          </Link>
+        </div>
+
         <nav className="header__nav">
-          <ul className="header__nav-list">
-            {this.renderButtons()}
-            <li key="0" className="header__nav-list-item">
-              <Link className="header__nav-list-item--link" to="/">
-                Home
-              </Link>
-            </li>
-          </ul>
+          <ul className="header__nav-list">{this.renderHeader()}</ul>
         </nav>
       </header>
     );
