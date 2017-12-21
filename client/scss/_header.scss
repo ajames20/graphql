@@ -1,14 +1,33 @@
 .header {
-  font-size: 1.4rem;
-  height: 7rem;
-  background-color: #fff;
-  border-bottom: var(--line);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  @media only screen and (max-width: $bp-smallest) {
-    flex-wrap: wrap;
-    align-content: space-around;
-    height: 11rem;
+  &__nav {
+    align-self: stretch;
+  }
+
+  &__nav-list {
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+
+  &__nav-list-item {
+    list-style: none;
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+
+    &--link {
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      height: 100%;
+      width: 100%;
+      text-transform: uppercase;
+      color: var(--color-primary-light);
+    }
+
+    &--link:hover {
+      background-color: var(--color-grey-light-2);
+    }
   }
 }
