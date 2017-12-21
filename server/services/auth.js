@@ -58,7 +58,7 @@ passport.use(
 function signup({ email, password, firstName, req }) {
   const user = new User({ email, password, firstName });
   if (!email || !password) {
-    throw new Error('You must provide an email and password.');
+    throw new Error('You must provide an email, first name and password.');
   }
 
   return User.findOne({ email })

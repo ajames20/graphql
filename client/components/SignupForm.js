@@ -1,30 +1,31 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import mutation from '../mutations/Login';
+import mutation from '../mutations/Signup';
 import query from '../queries/CurrentUser';
 
-class LoginForm extends Component {
+class SignupForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       email: '',
       password: '',
+      firstName: '',
       errors: [],
     };
   }
 
   onSubmit(event) {
-    const { email, password } = this.state;
+    const { email, password, firstName } = this.state;
     event.preventDefault();
-    this.onLogin({ email, password });
-    this.setState({ email: '', password: '' });
+    this.onLogin({ email, password, firstName });
+    this.setState({ email: '', password: '', firstName: '' });
   }
 
-  onLogin({ email, password }) {
+  onLogin({ email, password, firstName }) {
     this.props
       .mutate({
-        variables: { email, password },
+        variables: { email, password, firstName },
         refetchQueries: [{ query }],
       })
       .catch(res => {
@@ -36,8 +37,15 @@ class LoginForm extends Component {
   render() {
     return (
       <div className="submit-form">
-        <h2 className="submit-form__title">Login</h2>
+        <h2 className="submit-form__title">Sign Up</h2>
         <form className="submit-form__form" onSubmit={this.onSubmit.bind(this)}>
+          <input
+            className="submit-form__form--input"
+            type="text"
+            value={this.state.firstName}
+            placeholder="First Name"
+            onChange={e => this.setState({ firstName: e.target.value })}
+          />
           <input
             className="submit-form__form--input"
             type="text"
@@ -65,4 +73,4 @@ class LoginForm extends Component {
   }
 }
 
-export default graphql(mutation)(LoginForm);
+export default graphql(mutation)(SignupForm);

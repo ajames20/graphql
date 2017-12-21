@@ -4,7 +4,7 @@ import Header from './Header';
 const App = props => (
   <div className="container">
     <Header />
-    {props.children}
+    <div className="content">{props.children}</div>
   </div>
 );
 
