@@ -3,7 +3,7 @@ import { graphql } from 'react-apollo';
 import { Link } from 'react-router';
 import query from '../queries/CurrentUser';
 import LocationForm from './LocationForm';
-import mutation from '../mutations/logOut';
+import mutation from '../mutations/Logout';
 
 class Header extends Component {
   logOut() {
@@ -21,7 +21,7 @@ class Header extends Component {
 
     if (user) {
       return (
-        <li className="header__nav-list-item">
+        <li key="1" className="header__nav-list-item">
           <a className="header__nav-list-item--link" onClick={this.logOut.bind(this)} to="/logout">
             Logout
           </a>
@@ -30,12 +30,12 @@ class Header extends Component {
     }
 
     return [
-      <li className="header__nav-list-item">
+      <li key="2" className="header__nav-list-item">
         <Link className="header__nav-list-item--link" to="/signup">
           Sign Up
         </Link>
       </li>,
-      <li className="header__nav-list-item">
+      <li key="3" className="header__nav-list-item">
         <Link className="header__nav-list-item--link" to="/login">
           Log In
         </Link>
@@ -50,7 +50,7 @@ class Header extends Component {
         <nav className="header__nav">
           <ul className="header__nav-list">
             {this.renderButtons()}
-            <li className="header__nav-list-item">
+            <li key="0" className="header__nav-list-item">
               <Link className="header__nav-list-item--link" to="/">
                 Home
               </Link>
