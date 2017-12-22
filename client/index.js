@@ -25,15 +25,6 @@ const client = new ApolloClient({
   dataIdFromObject: o => o.id,
 });
 
-// function requireAuth(nextState, replace) {
-//   // if (!auth.isUserLoggedIn()) {
-//   //   replace({
-//   //     path: '/login',
-//   //     state: { nextPathname: nextState.location.pathname },
-//   //   });
-//   // }
-// }
-
 const Root = () => (
   <ApolloProvider client={client}>
     <Router history={hashHistory}>

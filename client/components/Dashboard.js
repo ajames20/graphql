@@ -23,21 +23,20 @@ class Dashboard extends Component {
     axios
       .get(ipAddress)
       .then(response => {
-        const lng = response.data.longitude;
-        const lat = response.data.latitude;
-        this.getWeather(lat, lng);
-        const { city, country } = response.data;
+        const lng = response.data.lon;
+        const lat = response.data.lat;
 
+        const { city, country } = response.data;
         this.setState({ city, country });
+        this.getWeather(lng, lat);
       })
       .catch(error => {
         console.log(error);
       });
   }
 
-  getWeather() {
-    const uri =
-      'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/e3dc1508c16f644095ba9353d7b468a8/60.1674,24.9426/';
+  getWeather(lat, lng) {
+    const uri = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/e3dc1508c16f644095ba9353d7b468a8/${lat},${lng}/`;
     axios
       .get(uri)
       .then(weatherData => {
@@ -51,7 +50,6 @@ class Dashboard extends Component {
   displayWeather(weatherData) {
     const { summary } = weatherData.data.currently;
     let { icon } = weatherData.data.currently;
-
     icon = icon.replace(/\-/g, '_').toUpperCase();
 
     this.setState({ summary, weatherIcon: icon });
@@ -64,15 +62,6 @@ class Dashboard extends Component {
       hashHistory.push('/login');
     }
     this.getLocation();
-  }
-
-  componentWillUnmount() {
-    this.setState({
-      city: '',
-      country: '',
-      weatherIcon: undefined,
-      summary: '',
-    });
   }
 
   render() {
