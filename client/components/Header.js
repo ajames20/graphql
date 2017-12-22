@@ -62,7 +62,7 @@ class Header extends Component {
   render() {
     const defaults = {
       icon: 'PARTLY_CLOUDY_DAY',
-      color: '#536976',
+      color: '#292e49',
       size: 46,
       animate: true,
     };

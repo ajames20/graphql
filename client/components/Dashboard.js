@@ -61,16 +61,25 @@ class Dashboard extends Component {
     this.getLocation();
   }
 
-  render() {
-    const { user } = this.props.data;
+  componentWillUnmount() {
+    this.setState({
+      city: '',
+      country: '',
+      weatherIcon: undefined,
+      summary: '',
+    });
+  }
 
-    if (!user) {
-      hashHistory.push('/');
-    }
+  render() {
+    // const { user } = this.props.data;
+
+    // if (!user) {
+    //   hashHistory.push('/');
+    // }
 
     const defaults = {
       icon: '',
-      color: '#bbd2c5',
+      color: '#292e49',
       size: 246,
       animate: true,
     };

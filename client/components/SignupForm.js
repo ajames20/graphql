@@ -46,6 +46,11 @@ class SignupForm extends Component {
     return (
       <div className="submit-form">
         <h2 className="submit-form__title">Sign Up</h2>
+        {this.state.errors.map(err => (
+          <p className="submit-form__form--error" key={err}>
+            {err}
+          </p>
+        ))}
         <form className="submit-form__form" onSubmit={this.onSubmit.bind(this)}>
           <input
             className="submit-form__form--input"
@@ -69,11 +74,6 @@ class SignupForm extends Component {
             placeholder="Password"
             onChange={e => this.setState({ password: e.target.value })}
           />
-          {this.state.errors.map(err => (
-            <p className="submit-form__form--error" key={err}>
-              {err}
-            </p>
-          ))}
           <button className="submit-form__form--button">Submit</button>
         </form>
       </div>

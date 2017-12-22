@@ -8,6 +8,7 @@
   width: 100%;
 
   &__title {
+    margin-bottom: -1rem;
     font-size: 3rem;
     font-weight: 300;
   }
@@ -50,7 +51,7 @@
   &__form--error {
     color: var(--error);
     font-size: 1.4rem;
-    margin: 1rem auto;
+    margin: -1rem auto;
   }
 
   &__form--button {
