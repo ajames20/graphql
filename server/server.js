@@ -15,12 +15,14 @@ const app = express();
 // Replace with your mongoLab URI
 const { MONGO_URI } = process.env;
 
+const url = process.env.DATABASE_URL || MONGO_URI;
+
 // Mongoose's built in promise library is deprecated, replace it with ES2015 Promise
 mongoose.Promise = global.Promise;
 
 // Connect to the mongoDB instance and log a message
 // on success or failure
-mongoose.connect(MONGO_URI);
+mongoose.connect(url);
 mongoose.connection
   .once('open', () => console.log('Connected to MongoLab instance.'))
   .on('error', error => console.log('Error connecting to MongoLab:', error));
@@ -39,7 +41,7 @@ app.use(
       url: MONGO_URI,
       autoReconnect: true,
     }),
-  })
+  }),
 );
 
 // Passport is wired into express as a middleware. When a request comes in,
@@ -55,7 +57,7 @@ app.use(
   expressGraphQL({
     schema,
     graphiql: true,
-  })
+  }),
 );
 
 // Webpack runs as a middleware.  If any request comes in for the root route ('/')
