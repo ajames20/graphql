@@ -6,6 +6,10 @@
     "type": "git",
     "url": "github.com/stephengrider"
   },
+  "engines": {
+    "node": "9.3.0",
+    "npm": "5.6.0"
+  },
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js --ignore client"
@@ -28,6 +32,7 @@
     "express-graphql": "^0.6.1",
     "express-session": "^1.15.0",
     "extract-text-webpack-plugin": "2.1.2",
+    "file-loader": "1.1.6",
     "graphql": "^0.8.2",
     "graphql-tag": "^1.2.4",
     "html-webpack-plugin": "^2.26.0",

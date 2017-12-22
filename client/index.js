@@ -5,8 +5,12 @@ import { ApolloProvider } from 'react-apollo';
 import { Router, hashHistory, Route, IndexRoute } from 'react-router';
 
 import App from './components/App';
+
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
+import Home from './components/Home';
+import Dashboard from './components/Dashboard';
+
 import './style.scss';
 
 const networkInterface = createNetworkInterface({
@@ -25,8 +29,10 @@ const Root = () => (
   <ApolloProvider client={client}>
     <Router history={hashHistory}>
       <Route path="/" component={App}>
+        <IndexRoute component={Home} />
         <Route path="/login" component={LoginForm} />
         <Route path="/signup" component={SignupForm} />
+        <Route path="/dashboard" component={Dashboard} />
       </Route>
     </Router>
   </ApolloProvider>

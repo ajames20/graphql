@@ -45,7 +45,7 @@ passport.use(
         return done(null, false, 'Invalid credentials.');
       });
     });
-  })
+  }),
 );
 
 // Creates a new user account.  We first check to see if a user already exists
@@ -77,7 +77,7 @@ function signup({ email, password, firstName, req }) {
             }
             resolve(user);
           });
-        })
+        }),
     );
 }
 
@@ -90,7 +90,7 @@ function login({ email, password, req }) {
   return new Promise((resolve, reject) => {
     passport.authenticate('local', (err, user) => {
       if (!user) {
-        reject('Invalid credentials.');
+        reject('Invalid credentials, must provide email and password.');
       }
 
       req.login(user, () => resolve(user));
