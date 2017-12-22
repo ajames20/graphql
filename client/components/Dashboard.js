@@ -71,12 +71,6 @@ class Dashboard extends Component {
   }
 
   render() {
-    // const { user } = this.props.data;
-
-    // if (!user) {
-    //   hashHistory.push('/');
-    // }
-
     const defaults = {
       icon: '',
       color: '#292e49',
