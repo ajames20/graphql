@@ -58,6 +58,11 @@ class Dashboard extends Component {
   }
 
   componentWillMount() {
+    const { user } = this.props.data;
+    if (!user) {
+      // redirect to login if not
+      hashHistory.push('/login');
+    }
     this.getLocation();
   }
 
