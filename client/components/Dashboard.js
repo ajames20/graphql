@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import ReactAnimatedWeather from 'react-animated-weather';
 import Loader from 'halogen/ClipLoader';
 import axios from 'axios';
+import query from '../queries/CurrentUser';
+import { graphql } from 'react-apollo';
+import { hashHistory } from 'react-router';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -24,7 +27,7 @@ class Dashboard extends Component {
         const lat = response.data.latitude;
         this.getWeather(lat, lng);
         const { city, country } = response.data;
-        console.log(response);
+
         this.setState({ city, country });
       })
       .catch(error => {
@@ -50,18 +53,23 @@ class Dashboard extends Component {
     let { icon } = weatherData.data.currently;
 
     icon = icon.replace(/\-/g, '_').toUpperCase();
-    console.log(icon);
+
     this.setState({ summary, weatherIcon: icon });
   }
 
   componentWillMount() {
     this.getLocation();
-    // this.getWeather();
   }
 
   render() {
+    const { user } = this.props.data;
+
+    if (!user) {
+      hashHistory.push('/');
+    }
+
     const defaults = {
-      icon: 'PARTLY_CLOUDY_DAY',
+      icon: '',
       color: '#bbd2c5',
       size: 246,
       animate: true,
@@ -87,14 +95,14 @@ class Dashboard extends Component {
           {!weatherIcon ? (
             <Loader
               className="dashboard__current-location-panel-details--loader"
-              color="#536976"
+              color="#bbd2c5"
               size="56px"
               margin="0 auto"
             />
           ) : (
             <ReactAnimatedWeather
               className="dashboard__current-location-panel-details--icon"
-              icon={icon}
+              icon={weatherIcon}
               color={color}
               size={size}
               animate={animate}
@@ -109,4 +117,4 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+export default graphql(query)(Dashboard);

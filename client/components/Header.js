@@ -28,6 +28,11 @@ class Header extends Component {
     if (user) {
       return [
         <LocationForm key="location-form" />,
+        <li key="0" className="header__nav-list-item">
+          <Link className="header__nav-list-item--link" to="/dashboard">
+            Dashboard
+          </Link>
+        </li>,
         <li key="1" className="header__nav-list-item">
           <a
             className="header__nav-list-item--link"
