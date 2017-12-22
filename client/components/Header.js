@@ -2,15 +2,20 @@ import React, { Component } from 'react';
 import ReactAnimatedWeather from 'react-animated-weather';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router';
+import { hashHistory } from 'react-router';
 import query from '../queries/CurrentUser';
 import LocationForm from './LocationForm';
 import mutation from '../mutations/Logout';
 
 class Header extends Component {
   logOut() {
-    this.props.mutate({
-      refetchQueries: [{ query }],
-    });
+    this.props
+      .mutate({
+        refetchQueries: [{ query }],
+      })
+      .then(() => {
+        hashHistory.push('/');
+      });
   }
 
   renderHeader() {
