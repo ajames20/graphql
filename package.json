@@ -13,7 +13,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js --ignore client",
-    "start": "node index.js",
+    "start": "node index.js --ignore client",
     "webpack": "webpack"
   },
   "author": "",
