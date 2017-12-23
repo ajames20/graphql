@@ -4,7 +4,7 @@ import Loader from 'halogen/ClipLoader';
 import axios from 'axios';
 import query from '../queries/CurrentUser';
 import { graphql } from 'react-apollo';
-import { hashHistory } from 'react-router';
+import { HashRouter } from 'react-router-dom';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -63,7 +63,7 @@ class Dashboard extends Component {
     const { user } = this.props.data;
     if (!user) {
       // redirect to login if not
-      hashHistory.push('/login');
+      HashRouter.push('/login');
     }
     this.getLocation();
   }

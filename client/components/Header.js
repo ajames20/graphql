@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactAnimatedWeather from 'react-animated-weather';
 import { graphql } from 'react-apollo';
-import { Link } from 'react-router';
-import { hashHistory } from 'react-router';
+import { Link } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import query from '../queries/CurrentUser';
 import LocationForm from './LocationForm';
 import mutation from '../mutations/Logout';
@@ -14,7 +14,7 @@ class Header extends Component {
         refetchQueries: [{ query }],
       })
       .then(() => {
-        hashHistory.push('/');
+        // HashRouter.push('/');
       });
   }
 
@@ -29,11 +29,7 @@ class Header extends Component {
       return [
         <LocationForm key="location-form" />,
         <li key="0" className="header__nav-list-item">
-          <Link
-            activeStyle={{ fontWeight: '600' }}
-            className="header__nav-list-item--link"
-            to="/dashboard"
-          >
+          <Link className="header__nav-list-item--link" to="/dashboard">
             Dashboard
           </Link>
         </li>,

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import mutation from '../mutations/Login';
 import query from '../queries/CurrentUser';
-import { hashHistory } from 'react-router';
+import { HashRouter } from 'react-router-dom';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class LoginForm extends Component {
   componentWillUpdate(nextProps) {
     if (!this.props.data.user && nextProps.data.user) {
       //redirect to dashboard
-      hashHistory.push('/dashboard');
+      HashRouter.push('/dashboard');
     }
   }
 
