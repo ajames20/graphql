@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import mutation from '../mutations/Signup';
 import query from '../queries/CurrentUser';
-import { HashRouter } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class SignupForm extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class SignupForm extends Component {
   componentWillUpdate(nextProps) {
     if (!this.props.data.user && nextProps.data.user) {
       //redirect to dashboard
-      HashRouter.push('/dashboard');
+      <Redirect to={{ pathname: '/dashboard' }} />;
     }
   }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import Header from './Header';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
@@ -8,7 +8,7 @@ import Dashboard from './Dashboard';
 
 const App = props => (
   <div className="container">
-    <Header />
+    <Header props={props} />
     <div className="content">
       <Switch>
         <Route exact path="/" component={Home} />
@@ -20,4 +20,4 @@ const App = props => (
   </div>
 );
 
-export default App;
+export default withRouter(App);

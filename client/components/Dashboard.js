@@ -4,7 +4,7 @@ import Loader from 'halogen/ClipLoader';
 import axios from 'axios';
 import query from '../queries/CurrentUser';
 import { graphql } from 'react-apollo';
-import { HashRouter } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -18,16 +18,16 @@ class Dashboard extends Component {
   }
 
   getLocation() {
-    const ipAddress = 'http://ip-api.com/json';
+    const ipAddress = 'http://freegeoip.net/json/';
 
     axios
       .get(ipAddress)
       .then(response => {
-        const lng = response.data.lon;
-        const lat = response.data.lat;
+        const lng = response.data.longitude;
+        const lat = response.data.latitude;
 
-        const { city, country } = response.data;
-        this.setState({ city, country });
+        const { city, country_name } = response.data;
+        this.setState({ city, country: country_name });
         this.getWeather(lng, lat);
       })
       .catch(error => {
@@ -54,16 +54,12 @@ class Dashboard extends Component {
 
     this.setState({ summary, weatherIcon: icon });
   }
-
-  componentWillMount() {
-    this.checkAuth();
-  }
-
-  checkAuth() {
+  componentDidMount() {
     const { user } = this.props.data;
+
     if (!user) {
       // redirect to login if not
-      HashRouter.push('/login');
+      this.props.history.push('/login');
     }
     this.getLocation();
   }
