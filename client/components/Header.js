@@ -29,7 +29,11 @@ class Header extends Component {
       return [
         <LocationForm key="location-form" />,
         <li key="0" className="header__nav-list-item">
-          <Link className="header__nav-list-item--link" to="/dashboard">
+          <Link
+            activeStyle={{ fontWeight: '600' }}
+            className="header__nav-list-item--link"
+            to="/dashboard"
+          >
             Dashboard
           </Link>
         </li>,

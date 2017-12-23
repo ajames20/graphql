@@ -4,7 +4,12 @@
   align-items: center;
   width: 100%;
   min-height: 50rem;
-  background-image: url('assets/pexels-photo-458785.jpeg');
+  background-image: linear-gradient(
+      to left bottom,
+      rgba(187, 210, 197, 0.3),
+      rgba(83, 105, 118, 0.3)
+    ),
+    url('assets/pexels-photo-458785.jpeg');
   background-size: cover;
   background-position: top;
   position: relative;

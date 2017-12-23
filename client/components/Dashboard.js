@@ -56,6 +56,10 @@ class Dashboard extends Component {
   }
 
   componentWillMount() {
+    this.checkAuth();
+  }
+
+  checkAuth() {
     const { user } = this.props.data;
     if (!user) {
       // redirect to login if not
