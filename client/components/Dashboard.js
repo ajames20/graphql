@@ -54,6 +54,7 @@ class Dashboard extends Component {
 
     this.setState({ summary, weatherIcon: icon });
   }
+
   componentDidMount() {
     const { user } = this.props.data;
 

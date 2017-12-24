@@ -30,8 +30,9 @@ class Header extends Component {
         <li key="0" className="header__nav-list-item">
           <NavLink
             activeStyle={{
-              fontWeight: 'bold',
-              color: 'red',
+              fontWeight: '600',
+              color: '#536976',
+              textDecoration: 'underline',
             }}
             className="header__nav-list-item--link"
             to="/dashboard"
