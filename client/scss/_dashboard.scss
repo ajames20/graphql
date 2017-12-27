@@ -5,13 +5,40 @@
 
   &__location-panel {
     flex: 0 0 30%;
-    border: 1px solid red;
+    border: var(--line);
+
+    &-header {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    &--list {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    &--list-item {
+      width: 30%;
+      font-size: 1.3rem;
+      padding: 1rem;
+    }
+
+    &--list-temp {
+      font-size: 1.25rem;
+    }
+
+    &--list-icon {
+      padding-top: 1rem;
+    }
   }
 
   &__current-location-panel {
     text-align: center;
-    border: 1px solid orchid;
     width: 100%;
+    border: var(--line);
 
     &--header {
       margin-top: 4.5rem;
@@ -34,9 +61,12 @@
       align-items: center;
     }
 
-    &-details--summary {
-      font-size: 1.8rem;
-      margin-top: 2rem;
+    &-details--condition {
+      font-size: 1.9rem;
+    }
+
+    &-details--temperature {
+      font-size: 2rem;
     }
   }
 }
