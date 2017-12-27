@@ -97,4 +97,4 @@ class Header extends Component {
   }
 }
 
-export default withRouter(graphql(mutation)(graphql(query)(Header)));
+export default withRouter(graphql(query)(graphql(mutation)(Header)));
