@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import mutation from '../mutations/Login';
 import query from '../queries/CurrentUser';
-import Dashboard from './Dashboard';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -51,6 +50,7 @@ class LoginForm extends Component {
             {err}
           </p>
         ))}
+
         <form className="submit-form__form" onSubmit={this.onSubmit.bind(this)}>
           <input
             className="submit-form__form--input"

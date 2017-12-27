@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import mutation from '../mutations/Signup';
 import query from '../queries/CurrentUser';
-import { Redirect } from 'react-router-dom';
 
 class SignupForm extends Component {
   constructor(props) {
@@ -17,9 +16,10 @@ class SignupForm extends Component {
   }
 
   componentWillUpdate(nextProps) {
+    const { history } = this.props;
     if (!this.props.data.user && nextProps.data.user) {
       //redirect to dashboard
-      <Redirect to={{ pathname: '/dashboard' }} />;
+      history.push('/dashboard');
     }
   }
 
@@ -51,6 +51,7 @@ class SignupForm extends Component {
             {err}
           </p>
         ))}
+
         <form className="submit-form__form" onSubmit={this.onSubmit.bind(this)}>
           <input
             className="submit-form__form--input"
