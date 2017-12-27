@@ -8,6 +8,16 @@
     margin-left: 2rem;
   }
 
+  &__heading {
+    margin-left: 8rem;
+
+    &--text {
+      font-size: 4rem;
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+  }
+
   &__nav {
     align-self: stretch;
     display: flex;

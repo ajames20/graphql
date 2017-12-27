@@ -3,7 +3,6 @@ import ReactAnimatedWeather from 'react-animated-weather';
 import { graphql } from 'react-apollo';
 import { NavLink, Link, withRouter } from 'react-router-dom';
 import query from '../queries/CurrentUser';
-import LocationForm from './LocationForm';
 import mutation from '../mutations/Logout';
 
 class Header extends Component {
@@ -26,7 +25,6 @@ class Header extends Component {
 
     if (user) {
       return [
-        <LocationForm key="location-form" />,
         <li key="0" className="header__nav-list-item">
           <NavLink
             activeStyle={{
@@ -85,6 +83,10 @@ class Header extends Component {
               animate={defaults.animate}
             />
           </Link>
+        </div>
+
+        <div className="header__heading">
+          <h1 className="header__heading--text">WeeklyWeather</h1>
         </div>
 
         <nav className="header__nav">
