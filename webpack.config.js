@@ -47,13 +47,5 @@ module.exports = {
       inject: true,
       template: 'client/index.html',
     }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        // This tells the Webpack and Babel for optimization for performance
-        NODE_ENV: JSON.stringify('production'),
-      },
-    }),
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.NoErrorsPlugin(),
   ],
 };
