@@ -6,11 +6,6 @@ import { Route, Switch, HashRouter as Router } from 'react-router-dom';
 
 import App from './components/App';
 
-// import LoginForm from './components/LoginForm';
-// import SignupForm from './components/SignupForm';
-// import Home from './components/Home';
-// import Dashboard from './components/Dashboard';
-
 import './style.scss';
 
 const networkInterface = createNetworkInterface({
