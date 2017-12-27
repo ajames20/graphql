@@ -48,4 +48,9 @@ module.exports = {
       template: 'client/index.html',
     }),
   ],
+  devServer: {
+    inline: true,
+    contentBase: './dist',
+    port: 5000,
+  },
 };
