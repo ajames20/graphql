@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactAnimatedWeather from 'react-animated-weather';
-import Loader from 'halogen/ClipLoader';
+import Loader from 'halogen/BounceLoader';
 import axios from 'axios';
 import query from '../queries/CurrentUser';
 import { graphql } from 'react-apollo';
