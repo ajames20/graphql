@@ -7,7 +7,7 @@ const passport = require('passport');
 const passportConfig = require('./services/auth');
 const MongoStore = require('connect-mongo')(session);
 const schema = require('./schema/schema');
-const path = require('path');
+// const path = require('path');
 if (process.env.NODE_ENV !== 'production') require('dotenv').config('.env');
 
 // Create a new Express application
@@ -61,7 +61,7 @@ app.use(
   }),
 );
 
-app.use(express.static(path.join(__dirname, 'dist')));
+// app.use(express.static(path.join(__dirname, '/')));
 
 // Webpack runs as a middleware.  If any request comes in for the root route ('/')
 // Webpack will respond with the output of the webpack process: an HTML file and
