@@ -5,6 +5,7 @@ import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import Home from './Home';
 import Dashboard from './Dashboard';
+import requireAuth from './requireAuth';
 
 const App = props => (
   <div className="container">
@@ -14,7 +15,7 @@ const App = props => (
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/signup" component={SignupForm} />
-        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/dashboard" component={requireAuth(Dashboard)} />
       </Switch>
     </div>
   </div>
