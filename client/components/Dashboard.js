@@ -98,8 +98,8 @@ class Dashboard extends Component {
             {weekday}
           </li>
           <div className="dashboard__location-panel--list-temp">
-            <span className="low">{min}</span>
-            <span className="high"> {max}</span>
+            <span className="low">Low: {min}</span>
+            <span className="high">High: {max}</span>
           </div>
           <div className="dashboard__location-panel--list-icon">
             <ReactAnimatedWeather
