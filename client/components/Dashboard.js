@@ -15,7 +15,6 @@ class Dashboard extends Component {
       weatherIcon: undefined,
       summary: '',
       temperature: '',
-      daily: [],
     };
   }
 
