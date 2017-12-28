@@ -19,7 +19,7 @@ class Dashboard extends Component {
   }
 
   getLocation() {
-    const ipAddress = 'http://freegeoip.net/json/';
+    const ipAddress = 'https://freegeoip.net/json/';
 
     axios
       .get(ipAddress)
