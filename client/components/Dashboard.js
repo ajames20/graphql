@@ -94,7 +94,7 @@ class Dashboard extends Component {
 
       return (
         <div className="dashboard__location-panel--list" key={i}>
-          <li className="dashboard__location-panel--list-item">{weekday}</li>
+          <li className="dashboard__location-panel--list-day">{weekday}</li>
           <div className="dashboard__location-panel--list-temp">
             <span className="low">Low: {min}</span>
             <span className="high">High: {max}</span>

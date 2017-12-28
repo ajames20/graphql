@@ -3,6 +3,10 @@
   min-height: 50rem;
   width: 100%;
 
+  @media only screen and (max-width: $medium) {
+    flex-direction: column;
+  }
+
   &__location-panel {
     flex: 0 0 30%;
     border: var(--line);
@@ -20,18 +24,30 @@
       align-items: center;
     }
 
-    &--list-item {
-      width: 30%;
+    &--list-day {
+      width: 15%;
       font-size: 1.3rem;
       padding: 1rem;
+
+      @media only screen and (max-width: $medium) {
+        font-size: 1.8rem;
+      }
     }
 
     &--list-temp {
       font-size: 1.25rem;
+
+      @media only screen and (max-width: $medium) {
+        font-size: 1.4rem;
+      }
     }
 
     &--list-icon {
       padding-top: 1rem;
+    }
+
+    @media only screen and (max-width: $medium) {
+      order: 1;
     }
   }
 
@@ -39,6 +55,10 @@
     text-align: center;
     width: 100%;
     border: var(--line);
+
+    @media only screen and (max-width: $medium) {
+      padding-bottom: 5rem;
+    }
 
     &--header {
       margin-top: 4.5rem;

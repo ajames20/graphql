@@ -13,4 +13,8 @@
   background-size: cover;
   background-position: top;
   position: relative;
+
+  @media only screen and (max-width: $medium) {
+    min-height: 100vh;
+  }
 }
