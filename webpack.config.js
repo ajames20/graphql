@@ -50,4 +50,9 @@ module.exports = {
       template: 'client/index.html',
     }),
   ],
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    historyApiFallback: true,
+    publicPath: '/dist/',
+  },
 };
