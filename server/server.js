@@ -70,11 +70,4 @@ const webpackConfig = require('../webpack.config.js');
 
 app.use(webpackMiddleware(webpack(webpackConfig)));
 
-app.use(express.static(__dirname + '/dist'));
-
-// views is directory for all template files
-app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/index.html');
-});
-
 module.exports = app;
