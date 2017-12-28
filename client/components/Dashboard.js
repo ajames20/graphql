@@ -93,10 +93,8 @@ class Dashboard extends Component {
       const dailyWeatherIcon = day.icon.replace(/\-/g, '_').toUpperCase();
 
       return (
-        <div className="dashboard__location-panel--list">
-          <li className="dashboard__location-panel--list-item" key={i}>
-            {weekday}
-          </li>
+        <div className="dashboard__location-panel--list" key={i}>
+          <li className="dashboard__location-panel--list-item">{weekday}</li>
           <div className="dashboard__location-panel--list-temp">
             <span className="low">Low: {min}</span>
             <span className="high">High: {max}</span>
