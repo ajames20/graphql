@@ -39,7 +39,7 @@ app.use(
     saveUninitialized: true,
     secret: 'aaabbbccc',
     store: new MongoStore({
-      url: MONGO_URI,
+      url,
       autoReconnect: true,
     }),
   }),

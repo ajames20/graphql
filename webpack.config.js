@@ -1,11 +1,13 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   entry: './client/index.js',
   output: {
-    filename: './dist/bundle.min.js',
+    filename: 'bundle.min.js',
+    path: path.join(__dirname, 'dist'),
   },
   module: {
     rules: [
