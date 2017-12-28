@@ -7,10 +7,8 @@ import mutation from '../mutations/Logout';
 
 class Header extends Component {
   logOut() {
-    const { user } = this.props.data;
     this.props
       .mutate({
-        variables: { user },
         refetchQueries: [{ query }],
       })
       .then(() => {
