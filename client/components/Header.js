@@ -3,7 +3,7 @@ import ReactAnimatedWeather from 'react-animated-weather';
 import { graphql } from 'react-apollo';
 import { NavLink, Link, withRouter } from 'react-router-dom';
 import query from '../queries/CurrentUser';
-// import mutation from './mutations/Logout';
+import mutation from '../mutations/Logout';
 
 class Header extends Component {
   logOut() {
@@ -97,4 +97,4 @@ class Header extends Component {
   }
 }
 
-export default withRouter(graphql(query)(Header));
+export default withRouter(graphql(query)(graphql(mutation)(Header)));
